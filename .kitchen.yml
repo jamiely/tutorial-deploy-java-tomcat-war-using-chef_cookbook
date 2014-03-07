@@ -1,0 +1,20 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+  - name: centos-6.4
+
+suites:
+  - name: default
+    run_list:
+      - recipe[jaxrs_tutorial::default]
+    attributes:
+      jaxrs_tutorial:
+        application_name: 'jaxrs_tutorial'
+        application_path: '/var/www/jaxrs_tutorial_test'
+        war_uri: 'http://33.33.33.1:8999/jaxrs_tutorial-1.0.0.war'
